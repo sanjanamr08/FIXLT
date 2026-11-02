@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FixIt | Campus Maintenance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        nav {
+            height: 75px;
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            border-bottom: 1px solid #e8ecf3;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: #2563eb;
+        }
+
+        .logo span {
+            color: #172033;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+            margin-left: 25px;
+        }
+
+        .login-btn {
+            background: #2563eb;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 9px;
+        }
+
+        .hero {
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 580px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e7efff;
+            color: #2563eb;
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 15px 25px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #d7dfeb;
+            color: #172033;
+            background: white;
+        }
+
+        .illustration {
+            background: #e8efff;
+            width: 390px;
+            height: 390px;
+            border-radius: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 150px;
+            flex-shrink: 0;
+        }
+
+        .features {
+            padding: 65px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .features > p {
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border: 1px solid #e8ecf3;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .feature-card .icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: #64748b;
+            background: #f5f7fb;
+        }
+
+        @media(max-width: 800px) {
+            nav {
+                padding: 0 5%;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 65px 6%;
+            }
+
+            .illustration {
+                width: 280px;
+                height: 280px;
+                font-size: 110px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a:not(.login-btn) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Fix<span>It.</span></div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="/login" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">CAMPUS MAINTENANCE MANAGEMENT</div>
+
+            <h1>
+                Campus problems?
+                <span>Fixed faster.</span>
+            </h1>
+
+            <p>
+                A smarter way to report, track and resolve
+                campus maintenance problems. From broken
+                lights to classroom repairs, FixIt keeps
+                everyone connected.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="/register" class="primary">
+                    Get Started →
+                </a>
+
+                <a href="/login" class="secondary">
+                    Track a Request
+                </a>
+            </div>
+
+        </div>
+
+        <div class="illustration">
+            🔧
+        </div>
+
+    </section>
+
+    <section class="features" id="features">
+
+        <h2>Everything in one place</h2>
+
+        <p>
+            Making campus maintenance easier, faster and smarter.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="icon">📝</div>
+                <h3>Report Issues</h3>
+                <p>
+                    Submit maintenance complaints with
+                    photos and classroom details.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📍</div>
+                <h3>Track Progress</h3>
+                <p>
+                    Follow your complaint from submission
+                    to successful resolution.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Faster Repairs</h3>
+                <p>
+                    Emergency alerts and smart assignment
+                    help maintenance teams respond faster.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 FixIt | Smart Campus Maintenance System
+    </footer>
+
+</body>
+</html>

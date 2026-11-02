@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | FixIt</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f1f5ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            display: flex;
+            width: 950px;
+            max-width: 100%;
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.10);
+        }
+
+        .left {
+            width: 38%;
+            background: linear-gradient(145deg, #1d4ed8, #2563eb);
+            color: white;
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left h1 {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+
+        .left p {
+            color: #dbeafe;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .illustration {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .right {
+            flex: 1;
+            padding: 45px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 22px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #172033;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dbe2ee;
+            border-radius: 9px;
+            margin-bottom: 18px;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px #dbeafe;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .login a {
+            color: #2563eb;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        .back a {
+            color: #64748b;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 13px;
+        }
+
+        @media(max-width: 750px) {
+            .left {
+                display: none;
+            }
+
+            .right {
+                padding: 35px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>Join FixIt!</h1>
+
+        <p>
+            Become part of a smarter campus.
+            Create your account to report
+            maintenance problems and follow
+            their resolution.
+        </p>
+
+        <div class="illustration">🛠️</div>
+    </div>
+
+    <div class="right">
+
+        <div class="logo">FixIt.</div>
+
+        <h2>Create Account</h2>
+
+        <p class="subtitle">
+            Register to access the campus maintenance system.
+        </p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="/register">
+
+            <label>Full Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+            <label>Email Address</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>I am registering as</label>
+            <select name="role" required>
+                <option value="">Select your role</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+                <option value="staff">Staff</option>
+            </select>
+
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                placeholder="Minimum 8 characters"
+                minlength="8"
+                required
+            >
+
+            <label>Confirm Password</label>
+            <input
+                type="password"
+                name="confirm_password"
+                placeholder="Re-enter your password"
+                minlength="8"
+                required
+            >
+
+            <button type="submit">Create My Account →</button>
+
+        </form>
+
+        <div class="login">
+            Already registered?
+            <a href="/login">Sign In</a>
+        </div>
+
+        <div class="back">
+            <a href="/">← Back to Home</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
